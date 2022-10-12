@@ -1,2 +1,2 @@
-#Team Samurai Hawks#
-##Face Recognition logger##
+# Team Samurai Hawks
+## Face Recognition logger

@@ -1,2 +1,2 @@
-#Team Tornado Warriors#
-##Photo booth camera##
+# Team Tornado Warriors
+## Photo booth camera

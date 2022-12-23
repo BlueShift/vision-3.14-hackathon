@@ -77,12 +77,21 @@ cv2.setMouseCallback("Frame", mouse_action)
 
 # start capturing images
 
-Camera_start(width, height)
+# Camera_start(width, height)
+
+
+
+# create capture with VideoCapture
+cap = cv2.VideoCapture(0)
+
 
 # main loop
-
-
 while True:
+
+    ret, frame = cap.read()
+    # cv2.imshow('frame', frame)
+    cv2.imwrite("/run/shm/testCapture.jpg", frame)
+
     # remove message after 3 seconds
 
     if time.time() - ttrat > 3 and ttrat > 0:
@@ -91,13 +100,13 @@ while True:
 
     # load image
 
-    pics = glob.glob("/run/shm/test*.jpg")
-    while len(pics) < 2:
-        pics = glob.glob("/run/shm/test*.jpg")
+    pics = glob.glob("/run/shm/testCapture*.jpg")
+    # while len(pics) < 2:
+    #     pics = glob.glob("/run/shm/test*.jpg")
     pics.sort(reverse=True)
-    img = cv2.imread(pics[1])
+    img = cv2.imread(pics[0])
     _img = img
-    if len(pics) > 2:
+    if len(pics) > 0:
         for tt in range(2, len(pics)):
             os.remove(pics[tt])
 
